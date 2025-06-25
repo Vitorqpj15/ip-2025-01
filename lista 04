@@ -1,1 +1,117 @@
+Q1- 
+package main
 
+import (
+	"fmt"
+)
+
+func main() {
+	var vetor [10]int
+	var encontrou bool
+
+
+	fmt.Println("Digite 10 números inteiros:")
+	for i := 0; i < 10; i++ {
+		fmt.Printf("Posição %d: ", i)
+		fmt.Scan(&vetor[i])
+	}
+
+
+	fmt.Println("\nNúmeros maiores que 50 e suas posições:")
+	for i, valor := range vetor {
+		if valor > 50 {
+			fmt.Printf("Valor %d na posição %d\n", valor, i)
+			encontrou = true
+		}
+	}
+
+
+	if !encontrou {
+		fmt.Println("Nenhum número maior que 50 foi encontrado.")
+	}
+}
+
+Q2- 
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var vetor1 [10]int
+	var vetor2 [5]int
+	var resultadoPares []int
+	var resultadoImpares []int
+
+
+	fmt.Println("Digite 10 números inteiros para o primeiro vetor:")
+	for i := 0; i < 10; i++ {
+		fmt.Printf("Posição %d: ", i)
+		fmt.Scan(&vetor1[i])
+	}
+
+	
+	fmt.Println("\nDigite 5 números inteiros para o segundo vetor:")
+	for i := 0; i < 5; i++ {
+		fmt.Printf("Posição %d: ", i)
+		fmt.Scan(&vetor2[i])
+	}
+
+
+	somaVetor2 := 0
+	for _, valor := range vetor2 {
+		somaVetor2 += valor
+	}
+
+	
+	for _, valor := range vetor1 {
+		if valor%2 == 0 {
+			resultadoPares = append(resultadoPares, valor+somaVetor2)
+		} else {
+			resultadoImpares = append(resultadoImpares, valor+somaVetor2)
+		}
+	}
+
+
+	fmt.Println("\nPrimeiro vetor:", vetor1)
+	fmt.Println("Segundo vetor:", vetor2)
+	fmt.Println("\nVetor resultante com números pares somados:", resultadoPares)
+	fmt.Println("Vetor resultante com números ímpares somados:", resultadoImpares)
+}
+
+Q3- 
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var numeros [10]int
+	var pares []int
+	var impares []int
+	somaPares := 0
+
+
+	fmt.Println("Digite 10 números inteiros:")
+	for i := 0; i < 10; i++ {
+		fmt.Printf("Posição %d: ", i)
+		fmt.Scan(&numeros[i])
+
+	
+		if numeros[i]%2 == 0 {
+			pares = append(pares, numeros[i])
+			somaPares += numeros[i]
+		} else {
+			impares = append(impares, numeros[i])
+		}
+	}
+
+	
+	fmt.Println("\n(a) Números pares digitados:", pares)
+	fmt.Println("(b) Soma dos números pares:", somaPares)
+	fmt.Println("(c) Números ímpares digitados:", impares)
+	fmt.Println("(d) Quantidade de números ímpares:", len(impares))
+}
